@@ -25,5 +25,12 @@
 }
 
 .description {
-  width: 150px;
+  width: 450px;
+}
+
+.editor {
+  width: 450px;  
+}
+.select {
+  display: flex;
 }

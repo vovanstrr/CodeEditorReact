@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import Select from 'react-select'
-// import CodeMirror from '@uiw/react-codemirror';
-// import { javascript } from '@codemirror/lang-javascript';
+import axios from 'axios';
 
 import './App.css'
 import CodeEditor from './CodeEditor';
@@ -30,10 +29,8 @@ function App() {
         Вывести Hello world 3 раза
       </div>
 
-
-
-      <div>
-        <div>
+      <div className='editor'>
+        <div className='select'>
           <Select options={options} defaultValue={options[0]} onChange={changeHandler} />
           <button onClick={click}>
             Run
@@ -44,17 +41,6 @@ function App() {
           dfgdgd
         </div>
       </div>
-
-
-
-      {/* <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div> */}
 
     </div>
   )
