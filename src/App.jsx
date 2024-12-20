@@ -1,13 +1,25 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Select from 'react-select'
-import axios from 'axios';
+// import axios from 'axios';
+import Output from './Output';
 
 import './App.css'
 import CodeEditor from './CodeEditor';
+import { Console, Hook, Unhook } from 'console-feed'
 
 function App() {
   // const [count, setCount] = useState(0)
   const [selectValue, setSelectValue] = useState(1)
+  // const [logs, setLogs] = useState([])
+
+  // useEffect(() => {
+  //   const hookedConsole = Hook(
+  //     window.console,
+  //     (log) => setLogs((currLogs) => [...currLogs, log]),
+  //     false
+  //   )
+  //   return () => Unhook(hookedConsole)
+  // }, [])
 
   const options = [
     { value: '1', label: 'Javascript' },
@@ -38,7 +50,8 @@ function App() {
           <CodeEditor />
         </div>
         <div className="result">
-          dfgdgd
+        {/* <Console logs={logs} variant="dark" /> */}
+        <Output/>
         </div>
       </div>
 
