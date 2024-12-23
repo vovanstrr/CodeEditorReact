@@ -1,20 +1,27 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import CodeMirror from '@uiw/react-codemirror';
 import { javascript } from '@codemirror/lang-javascript';
 import { python } from '@codemirror/lang-python'
 import { tokyoNight  } from '@uiw/codemirror-theme-tokyo-night'
+import ThemeContext from './MyContext';
 
 function CodeEditor() {
-  const [value, setValue] = React.useState("console.log('hello world!');");
+  const {selectValue, code, setCode} = useContext(ThemeContext)
+  // const [value, setValue] = React.useState("console.log('hello world!');");
   const onChange = React.useCallback((val, viewUpdate) => {
     console.log('val:', val);
-    setValue(val);
+ 
+    
+    setCode(val);
   }, []);
+//[javascript({ jsx: true })] [python()]
+  console.log('codeEditor ', selectValue == 1 ? "JS" : "python");
+  
   return (
-  <CodeMirror 
-  value={value} 
+     <CodeMirror 
+  value={code} 
   height="600px" 
-  extensions={[javascript({ jsx: true })]} 
+  extensions={selectValue == 1 ? [javascript({ jsx: true })] :  [python()]} 
   onChange={onChange} 
   theme={tokyoNight }
   />
