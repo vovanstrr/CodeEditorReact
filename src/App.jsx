@@ -1,27 +1,18 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import Select from 'react-select'
 import './App.css';
 import Output from './Output';
-import { executeCode } from './api'
 import ThemeContext from './MyContext'
-import './App.css'
 import CodeEditor from './CodeEditor';
+import { executeCode } from './api'
+import { CODE_SNIPPETS } from "./constants";
 // import { Console, Hook, Unhook } from 'console-feed'
 
 function App() {
   // const [count, setCount] = useState(0)
   const [selectValue, setSelectValue] = useState(1)
-  // const [logss, setLogss] = useState([2332, 23])
   const [code, setCode] = useState("console.log('hello world!');");
-
-  // useEffect(() => {
-  //   const hookedConsole = Hook(
-  //     window.console,
-  //     (log) => setLogs((currLogs) => [...currLogs, log]),
-  //     false
-  //   )
-  //   return () => Unhook(hookedConsole)
-  // }, [])
+  const [result, setResutl] = useState('')
 
   const options = [
     { value: '1', label: 'Javascript' },
@@ -29,13 +20,15 @@ function App() {
   ]
 
   const clickRun = async () => {
+    console.log(CODE_SNIPPETS['Javascript']);
+    
     if (!code) return;
     try {
-      const { run:result } = await executeCode(selectValue, code);
+      const { run: result } = await executeCode(selectValue, code);
       console.log(result);
-      
+
     } catch (e) {
-  console.log(e);
+      console.log(e);
     }
 
     console.log('code', code);
@@ -49,7 +42,7 @@ function App() {
   }
 
   return (
-    <ThemeContext.Provider value={{selectValue, code, setCode}}>
+    <ThemeContext.Provider value={{ selectValue, code, setCode }}>
       <div className='app'>
         <div className="description">
           <h1>Описание задачи</h1>
@@ -65,7 +58,6 @@ function App() {
             <CodeEditor />
           </div>
           <div className="result">
-            {/* <Console logs={logs} variant="dark" /> */}
             <Output />
           </div>
         </div>
