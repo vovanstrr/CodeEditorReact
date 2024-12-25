@@ -6,13 +6,16 @@ import ThemeContext from './MyContext'
 import CodeEditor from './CodeEditor';
 import { executeCode } from './api'
 import { CODE_SNIPPETS } from "./constants";
+
 // import { Console, Hook, Unhook } from 'console-feed'
+
 
 function App() {
   // const [count, setCount] = useState(0)
   const [selectValue, setSelectValue] = useState(1)
   const [code, setCode] = useState("console.log('hello world!');");
-  const [result, setResutl] = useState('')
+  // const [result, setResutl] = useState('')
+  
 
   const options = [
     { value: '1', label: 'Javascript' },
