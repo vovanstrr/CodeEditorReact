@@ -1,7 +1,8 @@
 import axios from "axios";
 
 const API = axios.create({
-    baseURL: "https://localhost",
+    // baseURL: "https://localhost",
+    baseURL: "api",
   });
 
   export const executeCode = async (language, sourceCode) => {

@@ -12,36 +12,43 @@ import { CODE_SNIPPETS } from "./constants";
 
 function App() {
   // const [count, setCount] = useState(0)
-  const [selectValue, setSelectValue] = useState(1)
-  const [code, setCode] = useState("console.log('hello world!');");
-  // const [result, setResutl] = useState('')
+  const [selectValue, setSelectValue] = useState('javascript')
+  const [code, setCode] = useState("console.log('hello world!');\nconsole.log('hello world!');\nconsole.log('hello world!');");
+  const [result, setResult] = useState({})
   
 
   const options = [
-    { value: '1', label: 'Javascript' },
-    { value: '2', label: 'Python' },
+    { value: 'javascript', label: 'Javascript' },
+    { value: 'python', label: 'Python' },
   ]
 
   const clickRun = async () => {
-    console.log(CODE_SNIPPETS['Javascript']);
+    // console.log(CODE_SNIPPETS['javascript']);
     
     if (!code) return;
     try {
-      const { run: result } = await executeCode(selectValue, code);
+      const response = await executeCode(selectValue, code);
+      console.log('selectValue ', selectValue);
+      
+      console.log('response ', response);
+      setResult(response)
       console.log(result);
+      
+      // { run: result }
 
     } catch (e) {
       console.log(e);
     }
 
-    console.log('code', code);
-    console.log(selectValue == 1 ? "JS" : "python");
-    console.log(selectValue)
+    // console.log('code', code);
+    console.log(selectValue == 'Javascript' ? "JS" : "python");
+    // console.log(selectValue)
   }
 
   const changeHandler = (e) => {
     // console.log(e.value);
     setSelectValue(e.value)
+    setCode(CODE_SNIPPETS[e.value])
   }
 
   return (
@@ -49,7 +56,7 @@ function App() {
       <div className='app'>
         <div className="description">
           <h1>Описание задачи</h1>
-          Вывести Hello world 3 раза
+          Вывести Hello World 3 раза
         </div>
 
         <div className='editor'>

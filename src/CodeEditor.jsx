@@ -20,7 +20,7 @@ function CodeEditor() {
   return (
      <CodeMirror 
   value={code} 
-  height="600px" 
+  height="300px" 
   extensions={selectValue == 1 ? [javascript({ jsx: true })] :  [python()]} 
   onChange={onChange} 
   theme={tokyoNight }
