@@ -1,11 +1,12 @@
 import { useState, useEffect, useContext } from 'react'
-import { Console, Hook, Unhook } from 'console-feed'
+// import { Console, Hook, Unhook } from 'console-feed'
 import ThemeContext from './MyContext';
-
+import './Output.css'
 
 function Output() {
     // const [logs, setLogs] = useState([])
-    const {result } = useContext(ThemeContext)
+    const { result } = useContext(ThemeContext)
+// console.log('Output ', result);
 
     // useEffect(() => {
     //     const hookedConsole = Hook(
@@ -17,8 +18,10 @@ function Output() {
     // }, [])
 
     return (
-        <div>
-            <Console  logs={result} variant="dark" />
+        <div className='Output'> 
+            {/* <Console  logs={result} variant="dark" /> */}
+            {result}
+            
         </div>
     )
 }

@@ -13,9 +13,9 @@ import { CODE_SNIPPETS } from "./constants";
 function App() {
   // const [count, setCount] = useState(0)
   const [selectValue, setSelectValue] = useState('javascript')
-  const [code, setCode] = useState("console.log('hello world!');\nconsole.log('hello world!');\nconsole.log('hello world!');");
-  const [result, setResult] = useState({})
-  
+  const [code, setCode] = useState("console.log('Hello world');\nconsole.log('Hello world');\nconsole.log('Hello world');");
+  const [result, setResult] = useState('')
+
 
   const options = [
     { value: 'javascript', label: 'Javascript' },
@@ -23,18 +23,16 @@ function App() {
   ]
 
   const clickRun = async () => {
-    // console.log(CODE_SNIPPETS['javascript']);
-    
+
     if (!code) return;
     try {
       const response = await executeCode(selectValue, code);
       console.log('selectValue ', selectValue);
-      
+
       console.log('response ', response);
-      setResult(response)
+      console.log('resp output ', response.output)
+      setResult(response.output)
       console.log(result);
-      
-      // { run: result }
 
     } catch (e) {
       console.log(e);
@@ -52,7 +50,7 @@ function App() {
   }
 
   return (
-    <ThemeContext.Provider value={{ selectValue, code, setCode }}>
+    <ThemeContext.Provider value={{ selectValue, code, setCode, result }}>
       <div className='app'>
         <div className="description">
           <h1>Описание задачи</h1>

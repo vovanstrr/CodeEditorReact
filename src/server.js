@@ -24,14 +24,14 @@ export function makeServer({ environment = "test" } = {}) {
                 let body = JSON.parse(request.requestBody)
                 console.log('body ', body);
 
-                if (body.code == "console.log('Hello, World');\nconsole.log('Hello, World');\nconsole.log('Hello, World');" &&
+                if (body.code == "console.log('Hello world');\nconsole.log('Hello world');\nconsole.log('Hello world');" &&
                     body.language == 'javascript') {
                     return ({
                         "result": "success",
                         "output": body.code
                     })
                 }
-                else if (body.code == "print('Hello, World')\nprint('Hello, World')\nprint('Hello, World')" &&
+                if (body.code == "print('Hello, World')\nprint('Hello, World')\nprint('Hello, World')" &&
                     body.language == 'python') {
                     return ({
                         "result": "success",
