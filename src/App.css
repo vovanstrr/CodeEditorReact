@@ -29,8 +29,9 @@
 }
 
 .editor {
+  display: flex;
   width: 450px;  
 }
 .select {
-  /* display: flex; */
+  display: flex;
 }
