@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from 'react'
+import { useContext } from 'react'
 // import { Console, Hook, Unhook } from 'console-feed'
 import ThemeContext from './MyContext';
 import './Output.css'

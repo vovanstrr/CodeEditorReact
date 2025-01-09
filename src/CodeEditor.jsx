@@ -8,7 +8,7 @@ import ThemeContext from "./MyContext";
 function CodeEditor() {
   const { selectValue, code, setCode } = useContext(ThemeContext);
   // const [value, setValue] = React.useState("console.log('hello world!');");
-  const onChange = React.useCallback((val, viewUpdate) => {
+  const onChange = React.useCallback((val ) => {    //(, viewUpdate)
     console.log("val:", val);
 
     setCode(val);
