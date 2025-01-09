@@ -28,7 +28,7 @@ function App() {
 
       console.log("response ", response);
       console.log("resp output ", response.output);
-      setResult(response.output);
+      setResult(response);
       console.log(result);
     } catch (e) {
       console.log(e);

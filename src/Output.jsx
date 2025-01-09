@@ -6,7 +6,7 @@ import './Output.css'
 function Output() {
     // const [logs, setLogs] = useState([])
     const { result } = useContext(ThemeContext)
-// console.log('Output ', result);
+ console.log('Output ', result);
 
     // useEffect(() => {
     //     const hookedConsole = Hook(
@@ -19,8 +19,8 @@ function Output() {
 
     return (
         <div className='Output'> 
-            {/* <Console  logs={result} variant="dark" /> */}
-            {result}
+                {/* <Console  logs={result} variant="dark" /> */}
+            {  result.result == "success" ? result.output : 'error'}
             
         </div>
     )
